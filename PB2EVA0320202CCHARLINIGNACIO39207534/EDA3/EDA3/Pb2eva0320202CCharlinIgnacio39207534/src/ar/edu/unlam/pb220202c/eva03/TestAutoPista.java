@@ -25,18 +25,18 @@ public class TestAutoPista {
 		public void queVerifiqueQueSeObtengaUnaListaDeAutosInsfractoresOrdenadaPorPatente() throws VehiculoNotFounException{
 	 		Autopista oeste = new Autopista();
 	        Vehiculo auto1 = new Vehiculo("AAA111", 100, 130);
-	        Camion camion1 = new Camion("CCC555", 70, 80,2);
+	        Camion camion1 = new Camion("CCC555", 90, 80,2);
 	        Camion camion2 = new Camion("ZZZ99", 70, 80,2);
 	        auto1.enInfraccion();
 	        camion1.enInfraccion();
-	        assertTrue(camion2.enInfraccion());
+	        assertTrue(camion1.enInfraccion());
 	        oeste.registrarTelepase(100, auto1);
 	        oeste.registrarTelepase(110, camion1);
 	        oeste.registrarTelepase(120, camion2);
 	        oeste.ingresarAutopista(100);
 	        oeste.ingresarAutopista(110);
 	        oeste.ingresarAutopista(120);
-	       
+	        equals(oeste.obtenerVehiculosConExcesosDeVelocidadOrdenadosPorPatente().contains(camion1));
 		}
 		@Test
 	 	public void queIngreseALaAutopista() throws VehiculoNotFounException{
